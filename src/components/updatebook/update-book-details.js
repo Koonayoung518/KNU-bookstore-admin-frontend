@@ -25,7 +25,7 @@ const states = [
   },
 ];
 
-export const AccountProfileDetails = (props) => {
+export const UpdateBookDetails = (props) => {
   const [values, setValues] = useState({
     firstName: "Katarina",
     lastName: "Smith",
@@ -131,7 +131,7 @@ export const AccountProfileDetails = (props) => {
           }}
         >
           <Button color="primary" variant="contained">
-            Save
+            Update
           </Button>
         </Box>
       </Card>

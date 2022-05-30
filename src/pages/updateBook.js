@@ -1,8 +1,8 @@
 import Head from "next/head";
 import NextLink from "next/link";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { AccountProfile } from "../components/account/account-profile";
-import { AccountProfileDetails } from "../components/account/account-profile-details";
+import { UpdateBookProfile } from "../components/updatebook/update-book-profile";
+import { UpdateBookDetails } from "../components/updatebook/update-book-details";
 import { DashboardLayout } from "../components/dashboard-layout";
 
 const Account = () => (
@@ -23,10 +23,10 @@ const Account = () => (
         </Typography>
         <Grid container spacing={3}>
           <Grid item lg={4} md={6} xs={12}>
-            <AccountProfile />
+            <UpdateBookProfile />
           </Grid>
           <Grid item lg={8} md={6} xs={12}>
-            <AccountProfileDetails />
+            <UpdateBookDetails />
           </Grid>
         </Grid>
       </Container>

@@ -1,10 +1,13 @@
 import { useState } from "react";
+import NextLink from "next/link";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import {
   Avatar,
   Box,
+  Button,
   Card,
   Checkbox,
   Table,
@@ -16,8 +19,9 @@ import {
   Typography,
 } from "@mui/material";
 import { getInitials } from "../../utils/get-initials";
+import Account from "src/pages/account";
 
-export const CustomerListResults = ({ customers, ...rest }) => {
+export const BookListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -84,7 +88,7 @@ export const CustomerListResults = ({ customers, ...rest }) => {
                 <TableCell>책 제목</TableCell>
                 <TableCell>출판사</TableCell>
                 <TableCell>수량</TableCell>
-                <TableCell>입고날짜</TableCell>
+                <TableCell>기능</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -108,7 +112,7 @@ export const CustomerListResults = ({ customers, ...rest }) => {
                         display: "flex",
                       }}
                     >
-                      <Avatar src={customer.avatarUrl} sx={{ mr: 2 }}>
+                      <Avatar src={customer.avatarUrl} variant="square">
                         {getInitials(customer.name)}
                       </Avatar>
                       <Typography color="textPrimary" variant="body1">
@@ -119,7 +123,12 @@ export const CustomerListResults = ({ customers, ...rest }) => {
                   <TableCell>{customer.name}</TableCell>
                   <TableCell>{customer.publisher}</TableCell>
                   <TableCell>{customer.stock}</TableCell>
-                  <TableCell>{format(customer.createdAt, "dd/MM/yyyy")}</TableCell>
+                  <TableCell>
+                    <NextLink href="/account" passHref>
+                      <Button component="a">상세보기</Button>
+                    </NextLink>
+                    <Button>삭제</Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -139,6 +148,6 @@ export const CustomerListResults = ({ customers, ...rest }) => {
   );
 };
 
-CustomerListResults.propTypes = {
+BookListResults.propTypes = {
   customers: PropTypes.array.isRequired,
 };

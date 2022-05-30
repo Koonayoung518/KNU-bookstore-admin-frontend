@@ -4,12 +4,12 @@ const user = {
   avatar: "/static/images/avatars/avatar_6.png",
   city: "Los Angeles",
   country: "USA",
-  jobTitle: "Senior Developer",
+  registered: "이미 등록된 책입니다!",
   name: "Katarina Smith",
   timezone: "GTM-7",
 };
 
-export const AccountProfile = (props) => (
+export const UpdateBookProfile = (props) => (
   <Card {...props}>
     <CardContent>
       <Box
@@ -24,8 +24,8 @@ export const AccountProfile = (props) => (
         <Typography color="textPrimary" gutterBottom variant="h5">
           {user.name}
         </Typography>
-        <Typography color="textSecondary" variant="body2">
-          {`${user.city} ${user.country}`}
+        <Typography color="red" variant="h6">
+          {user.registered}
         </Typography>
       </Box>
     </CardContent>
