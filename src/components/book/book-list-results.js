@@ -112,7 +112,7 @@ export const BookListResults = ({ customers, ...rest }) => {
                         display: "flex",
                       }}
                     >
-                      <Avatar src={customer.avatarUrl} variant="square">
+                      <Avatar src={customer.image} variant="square">
                         {getInitials(customer.name)}
                       </Avatar>
                       <Typography color="textPrimary" variant="body1">
@@ -120,7 +120,7 @@ export const BookListResults = ({ customers, ...rest }) => {
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{customer.name}</TableCell>
+                  <TableCell>{customer.title}</TableCell>
                   <TableCell>{customer.publisher}</TableCell>
                   <TableCell>{customer.stock}</TableCell>
                   <TableCell>

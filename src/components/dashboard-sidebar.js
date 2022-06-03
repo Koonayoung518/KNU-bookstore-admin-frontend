@@ -17,16 +17,16 @@ import { Logo } from "./logo";
 import { NavItem } from "./nav-item";
 
 const items = [
-  {
-    href: "/",
-    icon: <ChartBarIcon fontSize="small" />,
-    title: "Dashboard",
-  },
-  {
-    href: "/customers",
-    icon: <UsersIcon fontSize="small" />,
-    title: "customer",
-  },
+  // {
+  //   href: "/",
+  //   icon: <ChartBarIcon fontSize="small" />,
+  //   title: "Dashboard",
+  // },
+  // {
+  //   href: "/customers",
+  //   icon: <UsersIcon fontSize="small" />,
+  //   title: "customer",
+  // },
   {
     href: "/manage",
     icon: <UsersIcon fontSize="small" />,
@@ -37,30 +37,35 @@ const items = [
     icon: <UserIcon fontSize="small" />,
     title: "책 업데이트",
   },
-  {
-    href: "/products",
-    icon: <ShoppingBagIcon fontSize="small" />,
-    title: "Products",
-  },
+  // {
+  //   href: "/products",
+  //   icon: <ShoppingBagIcon fontSize="small" />,
+  //   title: "Products",
+  // },
   {
     href: "/account",
     icon: <UserIcon fontSize="small" />,
     title: "책 상세 정보",
   },
   {
+    href: "/sell",
+    icon: <ChartBarIcon fontSize="small" />,
+    title: "책 판매",
+  },
+  {
     href: "/settings",
     icon: <CogIcon fontSize="small" />,
-    title: "Settings",
+    title: "설정",
   },
   {
     href: "/login",
     icon: <LockIcon fontSize="small" />,
-    title: "Login",
+    title: "로그인",
   },
   {
     href: "/register",
     icon: <UserAddIcon fontSize="small" />,
-    title: "Register",
+    title: "회원가입",
   },
 ];
 

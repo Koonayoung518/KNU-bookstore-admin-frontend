@@ -10,34 +10,19 @@ import {
   TextField,
 } from "@mui/material";
 
-const states = [
-  {
-    value: "alabama",
-    label: "Alabama",
-  },
-  {
-    value: "new-york",
-    label: "New York",
-  },
-  {
-    value: "san-francisco",
-    label: "San Francisco",
-  },
-];
-
 export const UpdateBookDetails = (props) => {
-  const [values, setValues] = useState({
-    firstName: "Katarina",
-    lastName: "Smith",
-    email: "demo@devias.io",
-    phone: "",
-    state: "Alabama",
-    country: "USA",
+  const [book, setBook] = useState({
+    isbn: "9791185578606",
+    publisher: "인피니티북스",
+    author: "천인국",
+    price: 30000,
+    pubdate: "20200212",
+    stock: 5,
   });
 
   const handleChange = (event) => {
-    setValues({
-      ...values,
+    setBook({
+      ...book,
       [event.target.name]: event.target.value,
     });
   };
@@ -55,7 +40,7 @@ export const UpdateBookDetails = (props) => {
                 label="ISBN"
                 name="ISBN"
                 inputProps={{ readOnly: true }}
-                value={values.firstName}
+                value={book.isbn}
                 variant="outlined"
               />
             </Grid>
@@ -65,7 +50,7 @@ export const UpdateBookDetails = (props) => {
                 label="출판사"
                 name="출판사"
                 inputProps={{ readOnly: true }}
-                value={values.lastName}
+                value={book.publisher}
                 variant="outlined"
               />
             </Grid>
@@ -75,7 +60,7 @@ export const UpdateBookDetails = (props) => {
                 label="저자"
                 name="저자"
                 inputProps={{ readOnly: true }}
-                value={values.email}
+                value={book.author}
                 variant="outlined"
               />
             </Grid>
@@ -85,7 +70,7 @@ export const UpdateBookDetails = (props) => {
                 label="출간일"
                 name="출간일"
                 inputProps={{ readOnly: true }}
-                value={values.country}
+                value={book.pubdate}
                 variant="outlined"
               />
             </Grid>
@@ -97,7 +82,7 @@ export const UpdateBookDetails = (props) => {
                 onChange={handleChange}
                 required
                 type="number"
-                value={values.phone}
+                value={book.price}
                 variant="outlined"
               />
             </Grid>
@@ -108,17 +93,9 @@ export const UpdateBookDetails = (props) => {
                 name="재고"
                 onChange={handleChange}
                 required
-                select
-                SelectProps={{ native: true }}
-                value={values.state}
+                value={book.stock}
                 variant="outlined"
-              >
-                {states.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              ></TextField>
             </Grid>
           </Grid>
         </CardContent>

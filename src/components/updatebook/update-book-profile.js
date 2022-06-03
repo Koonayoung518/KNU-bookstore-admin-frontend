@@ -1,12 +1,9 @@
 import { Box, Button, Card, CardActions, CardContent, Divider, Typography } from "@mui/material";
 
-const user = {
-  avatar: "/static/images/avatars/avatar_6.png",
-  city: "Los Angeles",
-  country: "USA",
+const book = {
+  image: "https://bookthumb-phinf.pstatic.net/cover/162/437/16243707.jpg?type=m1&udate=20210509",
+  title: "인공지능 (파이썬으로 배우는 머신러닝과 딥러닝)",
   registered: "이미 등록된 책입니다!",
-  name: "Katarina Smith",
-  timezone: "GTM-7",
 };
 
 export const UpdateBookProfile = (props) => (
@@ -19,13 +16,13 @@ export const UpdateBookProfile = (props) => (
           flexDirection: "column",
         }}
       >
-        <img alt="이미지 없음" src={user.avatar} />
+        <img alt="이미지 없음" src={book.image} />
 
         <Typography color="textPrimary" gutterBottom variant="h5">
-          {user.name}
+          {book.title}
         </Typography>
         <Typography color="red" variant="h6">
-          {user.registered}
+          {book.registered}
         </Typography>
       </Box>
     </CardContent>

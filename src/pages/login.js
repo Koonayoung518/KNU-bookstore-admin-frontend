@@ -47,17 +47,17 @@ const Login = () => {
           <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
               <Typography color="textPrimary" variant="h4">
-                Sign in
+                로그인
               </Typography>
               <Typography color="textSecondary" gutterBottom variant="body2">
-                Sign in on the internal platform
+                KNU-BookStore
               </Typography>
             </Box>
             <TextField
               error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
               helperText={formik.touched.email && formik.errors.email}
-              label="Email Address"
+              label="Id"
               margin="normal"
               name="email"
               onBlur={formik.handleBlur}
@@ -88,7 +88,7 @@ const Login = () => {
                 type="submit"
                 variant="contained"
               >
-                Sign In Now
+                로그인
               </Button>
             </Box>
             <Typography color="textSecondary" variant="body2">
@@ -102,7 +102,7 @@ const Login = () => {
                     cursor: "pointer",
                   }}
                 >
-                  Sign Up
+                  회원가입
                 </Link>
               </NextLink>
             </Typography>
