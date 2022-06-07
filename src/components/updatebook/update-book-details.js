@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback, useDebugValue } from "react";
 import {
   Box,
   Button,
@@ -9,16 +9,18 @@ import {
   Grid,
   TextField,
 } from "@mui/material";
+import axios from "axios";
+import Api from "src/api/Api";
 
 export const UpdateBookDetails = (props) => {
-  const [book, setBook] = useState({
-    isbn: "9791185578606",
-    publisher: "인피니티북스",
-    author: "천인국",
-    price: 30000,
-    pubdate: "20200212",
-    stock: 5,
-  });
+  // const [book, setBook] = useState({
+  //   isbn: "9791185578606",
+  //   publisher: "인피니티북스",
+  //   author: "천인국",
+  //   price: 30000,
+  //   pubdate: "20200212",
+  //   stock: 5,
+  // });
 
   const handleChange = (event) => {
     setBook({
@@ -26,7 +28,27 @@ export const UpdateBookDetails = (props) => {
       [event.target.name]: event.target.value,
     });
   };
+  const [isbn, setIsbn] = useState(null);
+  const [publisher, setPublisher] = useState(null);
+  const [author, setAuthor] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [pubdate, setPubdate] = useState(null);
+  const [stock, setStock] = useState(null);
 
+  const bringData = useCallback(async () => {
+    setIsbn("9788965402602"); // 임의로 지정
+    const resBook = await new Api().getData("http://localhost:8080/manage/book/" + isbn, {});
+    console.log(resBook);
+    setPublisher(resBook.list.publisher);
+    setAuthor(resBook.list.author);
+    setPrice(resBook.list.price);
+    setPubdate(resBook.list.pubdate);
+    setStock(resBook.list.stock);
+  }, []);
+
+  useEffect(() => {
+    bringData();
+  }, [bringData]);
   return (
     <form autoComplete="off" noValidate {...props}>
       <Card>
@@ -40,7 +62,7 @@ export const UpdateBookDetails = (props) => {
                 label="ISBN"
                 name="ISBN"
                 inputProps={{ readOnly: true }}
-                value={book.isbn}
+                value={isbn}
                 variant="outlined"
               />
             </Grid>
@@ -50,7 +72,7 @@ export const UpdateBookDetails = (props) => {
                 label="출판사"
                 name="출판사"
                 inputProps={{ readOnly: true }}
-                value={book.publisher}
+                value={publisher}
                 variant="outlined"
               />
             </Grid>
@@ -60,7 +82,7 @@ export const UpdateBookDetails = (props) => {
                 label="저자"
                 name="저자"
                 inputProps={{ readOnly: true }}
-                value={book.author}
+                value={author}
                 variant="outlined"
               />
             </Grid>
@@ -70,7 +92,7 @@ export const UpdateBookDetails = (props) => {
                 label="출간일"
                 name="출간일"
                 inputProps={{ readOnly: true }}
-                value={book.pubdate}
+                value={pubdate}
                 variant="outlined"
               />
             </Grid>
@@ -82,7 +104,7 @@ export const UpdateBookDetails = (props) => {
                 onChange={handleChange}
                 required
                 type="number"
-                value={book.price}
+                value={price}
                 variant="outlined"
               />
             </Grid>
@@ -93,7 +115,7 @@ export const UpdateBookDetails = (props) => {
                 name="재고"
                 onChange={handleChange}
                 required
-                value={book.stock}
+                value={stock}
                 variant="outlined"
               ></TextField>
             </Grid>
