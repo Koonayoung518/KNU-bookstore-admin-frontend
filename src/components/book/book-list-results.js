@@ -2,8 +2,7 @@ import { useState } from "react";
 import NextLink from "next/link";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { format } from "date-fns";
+import { useRouter } from "next/router";
 import {
   Avatar,
   Box,
@@ -19,13 +18,12 @@ import {
   Typography,
 } from "@mui/material";
 import { getInitials } from "../../utils/get-initials";
-import Account from "src/pages/account";
 
 export const BookListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
-
+  const router = useRouter();
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
 
@@ -124,9 +122,21 @@ export const BookListResults = ({ customers, ...rest }) => {
                   <TableCell>{customer.publisher}</TableCell>
                   <TableCell>{customer.stock}</TableCell>
                   <TableCell>
-                    <NextLink href="/account" passHref>
+                    <NextLink href="/updateBook" passHref>
                       <Button component="a">상세보기</Button>
                     </NextLink>
+                    <Button
+                      component="a"
+                      type="button"
+                      onClick={() => {
+                        router.push({
+                          pathname: "/bookDetails/[isbn]",
+                          query: { isbn: customer.isbn },
+                        });
+                      }}
+                    >
+                      test
+                    </Button>
                     <Button>삭제</Button>
                   </TableCell>
                 </TableRow>

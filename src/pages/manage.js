@@ -11,7 +11,7 @@ const Manage = () => {
   const [books, setBooks] = useState([]);
 
   const bringData = useCallback(async () => {
-    const resBook = await new Api().getData("http://localhost:8080/knu/book", {});
+    const resBook = await new Api().getData("http://localhost:8080/manage/book", {});
     console.log(resBook);
     setBooks([...resBook.list]);
   }, []);

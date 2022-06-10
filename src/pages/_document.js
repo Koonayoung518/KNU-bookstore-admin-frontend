@@ -9,14 +9,6 @@ class CustomDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <div className="App">
-          {/* <Router>
-            <Routes>
-              <Route path="/" component={Dashboard} exact />
-              <Route path="/account" component={Account} exact />
-            </Routes>
-          </Router> */}
-        </div>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -30,7 +22,7 @@ class CustomDocument extends Document {
           />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" href="/favicon.ico" />
-          {/* <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> */}
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <meta name="theme-color" content="#111827" />
         </Head>

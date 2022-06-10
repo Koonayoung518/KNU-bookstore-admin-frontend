@@ -1,14 +1,14 @@
 import Head from "next/head";
 import NextLink from "next/link";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { UpdateBookProfile } from "../components/updatebook/update-book-profile";
-import { UpdateBookDetails } from "../components/updatebook/update-book-details";
-import { DashboardLayout } from "../components/dashboard-layout";
-import { useParams } from "react-router-dom";
+import { UpdateBookProfile } from "../../components/updatebook/update-book-profile";
+import { UpdateBookDetails } from "../../components/updatebook/update-book-details";
+import { DashboardLayout } from "../../components/dashboard-layout";
+import { useRouter } from "next/router";
 
 const Details = () => {
-  const params = useParams();
-
+  const router = useRouter();
+  const isbn = router.query.isbn;
   return (
     <>
       <Head>

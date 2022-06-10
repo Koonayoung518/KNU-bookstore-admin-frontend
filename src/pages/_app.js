@@ -6,10 +6,6 @@ import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { createEmotionCache } from "../utils/create-emotion-cache";
 import { theme } from "../theme";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import Account from "./account";
-import Dashboard from ".";
-import Manage from "./manage";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -20,15 +16,8 @@ const App = (props) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      {/* <Router>
-        <Routes>
-          <Route path="/" component={Dashboard} exact />
-          <Route path="/account" component={Account} exact />
-        </Routes>
-      </Router> */}
-
       <Head>
-        <title>KNU-BookStore</title>
+        <title>Material Kit Pro</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns}>

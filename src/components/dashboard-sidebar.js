@@ -22,11 +22,11 @@ const items = [
   //   icon: <ChartBarIcon fontSize="small" />,
   //   title: "Dashboard",
   // },
-  // {
-  //   href: "/customers",
-  //   icon: <UsersIcon fontSize="small" />,
-  //   title: "customer",
-  // },
+  {
+    href: "/home",
+    icon: <UsersIcon fontSize="small" />,
+    title: "customer",
+  },
   {
     href: "/manage",
     icon: <UsersIcon fontSize="small" />,
